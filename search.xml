@@ -8,7 +8,7 @@
       <link href="/2020/01/30/About-this-blog/"/>
       <url>/2020/01/30/About-this-blog/</url>
       
-        <content type="html"><![CDATA[<div id="gitalk-container"></div><script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalkConfig = {"clientID":"c96b38169b716996020c","clientSecret":"3fcbe81a165d280f53ec52a96002f83ef611d556","repo":"latteotw.github.io","owner":"latteotw","admin":["latteotw"],"distractionFreeMode":false};    gitalkConfig.id = md5(location.pathname);var gitalk = new Gitalk(gitalkConfig);    gitalk.render("gitalk-container");    </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="Test-title"><a href="#Test-title" class="headerlink" title="Test title"></a>Test title</h1><h2 id="Test-subtitle"><a href="#Test-subtitle" class="headerlink" title="Test subtitle"></a>Test subtitle</h2><p>No much content here</p>]]></content>
       
       
       <categories>
