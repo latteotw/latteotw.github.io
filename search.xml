@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>How to use this blog</title>
+      <link href="/2020/02/02/How-to-use-this-blog/"/>
+      <url>/2020/02/02/How-to-use-this-blog/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Misc </category>
+          
+          <category> General </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Misc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Study plan</title>
+      <link href="/2020/02/02/Study-plan/"/>
+      <url>/2020/02/02/Study-plan/</url>
+      
+        <content type="html"><![CDATA[<p><strong><em>We will follow the following order when we practice with Leetcode</em></strong></p><ul><li>Arrays</li><li>Strings</li><li>Hash table</li><li>Stack</li><li>Queue</li><li>Linked list</li><li>Tree</li><li>Graph</li><li>Math</li><li>Bit manipulation</li><li>Recursion</li><li>Sort</li><li>Heap</li><li>Divide and conquer</li><li>Binary Search</li><li>BFS</li><li>DFS</li><li>Union find</li><li>Dynamic programming</li><li>Greedy</li><li>Backtracking</li></ul><p>As you can see, we will try to focus on data structures first and then algorithms<br>since I personally think that data structure are the fundamental for learning more<br>advanced algorithms as algorithms are implemented with basic data structures. However,<br>you will find a lot intersections between data structure and algorithms. For example,<br>in order to solve an array problem, you might have to use the knowledge of binary<br>search. Therefore, I will try to not include questions that rely on knowledge about<br>topics that we have not covered yet. However, I will keep a note on my end to make<br>sure that we re-visit those problems after we cover the topics. After we visit every<br>topic, all the dots will be connected.</p><p>There are some topics that I didn’t include in above list because they have less frequencies<br>though they are equally important as those problems with higher frequencies. For<br>example: Trie, Segment tree, Ordered map and etc. I will still cover these topics<br>at the time when I think I am ready.</p><p>I will create a folder(category) and also tag for each of the topics. You can either<br>browse by category, tag or simply search in the search box.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Misc </category>
+          
+          <category> General </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Misc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Knowledge structure graph</title>
       <link href="/2020/02/02/Knowledge-structure-graph/"/>
       <url>/2020/02/02/Knowledge-structure-graph/</url>
