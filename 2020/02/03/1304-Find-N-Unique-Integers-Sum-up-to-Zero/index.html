@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>所有标签 | LATTEOTW</title>
+  <title>1304. Find N Unique Integers Sum up to Zero | LATTEOTW</title>
   
   
 
@@ -46,7 +46,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover tag half'>
+    <cover class='cover post half'>
       
         
   <h1 class='title'>LATTEOTW</h1>
@@ -247,67 +247,268 @@
 
   <div class="l_body">
     <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
       
-<div class='l_main'>
+        
   
+    <h1 class="title">
+      <a href="/2020/02/03/1304-Find-N-Unique-Integers-Sum-up-to-Zero/">
+        1304. Find N Unique Integers Sum up to Zero
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
     
-      <section class="post-list">
-        <div class='post-wrapper'>
-          <article id="archive-page" class="post article white-box">
-            <section class="archive">
-              <div class="archive-item archive-year mark">
-                <h2>所有标签</h2>
-                <hr>
-              </div>
-              <div class="archive-item archive-post mark">
-                
-                  
-                    
-                      <a class="" href="/tags/Array/">
-                        <time><i class='fas fa-tag fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;Array</time>
-                        <span class="title">
-                          (1)
-                        </span>
-                      </a>
-                    
-                  
-                    
-                      <a class="" href="/tags/Easy/">
-                        <time><i class='fas fa-tag fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;Easy</time>
-                        <span class="title">
-                          (1)
-                        </span>
-                      </a>
-                    
-                  
-                    
-                      <a class="" href="/tags/Misc/">
-                        <time><i class='fas fa-tag fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;Misc</time>
-                        <span class="title">
-                          (4)
-                        </span>
-                      </a>
-                    
-                  
-                    
-                      <a class="" href="/tags/Python-List/">
-                        <time><i class='fas fa-tag fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;Python-List</time>
-                        <span class="title">
-                          (1)
-                        </span>
-                      </a>
-                    
-                  
-                
-              </div>
-              <br>
+      <a href="https://latteotw.github.io" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>latteotw</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-03</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Python/List/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Array&nbsp;/&nbsp;Python&nbsp;/&nbsp;List</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p><a href="https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/" target="_blank" rel="noopener">https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/</a></p>
+<h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><blockquote>
+<p>Given an integer n, return <strong><em>any</em></strong> array containing n <strong><em>unique</em></strong> integers such that they add up to 0.</p>
+</blockquote>
+<h1 id="Problem-Analysis"><a href="#Problem-Analysis" class="headerlink" title="Problem Analysis"></a>Problem Analysis</h1><p>We firstly note that the input is an integer <strong>n</strong> and output is an <strong>array</strong>. Furthermore, we find that the output is not unique, which means that we have to construct an output that meet the requirement of the problem and there could be multiple or even infinite number of correct answers to this problem. This is rarely seen in a coding interview.</p>
+<p>Another important thing that we notice from the question statement is that elements we use in the answer must be unique, which means we cannot reuse any of the element.</p>
+<h1 id="Thinking-Process"><a href="#Thinking-Process" class="headerlink" title="Thinking Process"></a>Thinking Process</h1><p>Firstly we noticed that we need to construct an array that sums to 0. It’s really natural to think about the following way of constructing the array:</p>
+<blockquote>
+<p>[-n, -n-1, -n-2, …, -3, -2, -1, 0, 1, 2, 3, …, n-2, n-1, n]</p>
+</blockquote>
+<p>Since we need n elements in the array, which means we need n/2 elements on the positive side and n/2 on the negative side so that they can easily sum up to zero. The dealbreaker here is whether we need to include 0 in the array. On which circumstances do we need to include 0? When n is odd. Otherwise we don’t need 0. With this thinking process, it’s very easy to come up with the following naive solution:</p>
+<h1 id="First-Solution"><a href="#First-Solution" class="headerlink" title="First Solution"></a>First Solution</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sumZero</span><span class="params">(self, n: int)</span> -&gt; List[int]:</span></span><br><span class="line">        answer = [] <span class="comment"># We construct an empty array to hold the result</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, (n//<span class="number">2</span>) + <span class="number">1</span>):</span><br><span class="line">            answer.extend([i, -i])</span><br><span class="line">        <span class="keyword">if</span> n % <span class="number">2</span> != <span class="number">0</span>: answer.append(<span class="number">0</span>) <span class="comment"># We add 0 when n is odd</span></span><br><span class="line">        <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="Improvements"><a href="#Improvements" class="headerlink" title="Improvements"></a>Improvements</h1><p>Let’s analyze the time complexity and space complexity of our first algorithm.</p>
+<blockquote>
+<p>Time complexity: O(N) because we need to iterate the loop for n/2 times.</p>
+<p>Space complexity: O(N) because our answer array has exactly n elements.</p>
+</blockquote>
+<p>We won’t be able to simplify the space complexity for sure because we anyway need to return an array with size n. Also, I don’t think there are easy ways to improve the time complexity as well because how many elements need to be constructed is depend on the input integer n and we have already reached a linear algorithm. So my focus will be at improving the code itself.</p>
+<p>What’s the ugly part in our code? I guess the first thing I want to get rid of is the if statement. How can we get rid of it? Let’s do some observations of the following constructions:</p>
+<blockquote>
+<p>n = 1, [0]<br>n = 2, [-1, 1]<br>n = 3, [-2, 0, 2]<br>n = 4, [-3, -1, 1, 3]<br>n = 5, [-4, -2, 0, 2, 4]</p>
+</blockquote>
+<p>What’s rule can we derive from it?</p>
+<blockquote>
+<p>The i-th element of the returning array = i * 2 - n + 1</p>
+</blockquote>
+<p>Now with the derived rule, we can get the following improved algorithms:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sumZero</span><span class="params">(self, n: int)</span> -&gt; List[int]:</span></span><br><span class="line">        answer = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            answer.append(i * <span class="number">2</span> - n + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+
+<p>To be more Pythonic:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sumZero</span><span class="params">(self, n: int)</span> -&gt; List[int]:</span></span><br><span class="line">        <span class="keyword">return</span> [i * <span class="number">2</span> - n + <span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(n)]</span><br></pre></td></tr></table></figure>
+
+<h1 id="Answer-Analysis"><a href="#Answer-Analysis" class="headerlink" title="Answer Analysis"></a>Answer Analysis</h1><p>The improved algorithm doesn’t help with improving the time and space complexities.</p>
+<blockquote>
+<p>Time complexity: O(N)</p>
+<p>Space complexity: O(N)</p>
+</blockquote>
+<h1 id="Takeaways"><a href="#Takeaways" class="headerlink" title="Takeaways"></a>Takeaways</h1><p>The main take aways for this problem will be about python.</p>
+<ol>
+<li><p>Different ways to concatenate two lists</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Method 1: using +</span></span><br><span class="line">print(a + b) <span class="comment"># [1, 2, 3, 4, 5, 6]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Method 2: using extend</span></span><br><span class="line">a.extend(b)</span><br><span class="line">print(a) <span class="comment"># [1, 2, 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+
+<p> The difference between using + and extend is that + will create a new list while extend modifies the first list in-place. Extend will save some space for most use cases.</p>
+</li>
+<li><p>Python list comprehension</p>
+<p> Please refer to <a href="https://www.programiz.com/python-programming/list-comprehension" target="_blank" rel="noopener">this awesome post</a> for how to use python list comprehension</p>
+</li>
+<li><p>// and / for division operations</p>
+<p> Depend on which version of python you use, // and / works differently</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python3</span></span><br><span class="line"><span class="number">3</span> // <span class="number">2</span> <span class="comment"># = 1</span></span><br><span class="line"><span class="number">3</span> / <span class="number">2</span> <span class="comment"># = 1.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># python2</span></span><br><span class="line"><span class="number">3</span> // <span class="number">2</span> <span class="comment"># = 1</span></span><br><span class="line"><span class="number">3</span> / <span class="number">2</span> <span class="comment"># = 1</span></span><br><span class="line"><span class="number">3</span> / <span class="number">2.0</span> <span class="comment"># = 1.5</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      </div>
+      
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-03T23:07:49-08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>updated at Feb 3, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Array/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Array</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Easy/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Easy</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python-List/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Python-List</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
               
-            </section>
-          </article>
-        </div>
-      </section>
-    
-  
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2020/02/02/How-to-use-this-blog/" rel="prev" title="How to use this blog">
+                                  
+                                      How to use this blog
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Misc/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Misc</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Comments</h4>
+      
+      
+      
+        <section id="comments">
+          <div id="gitalk-container"></div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '1304. Find N Unique Integers Sum up to Zero',
+      tools: true
+    }
+  </script>
+
+
 </div>
 <aside class='l_side'>
   
@@ -423,6 +624,20 @@
           
             
               
+  <section class='widget toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem-Statement"><span class="toc-text">Problem Statement</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem-Analysis"><span class="toc-text">Problem Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Thinking-Process"><span class="toc-text">Thinking Process</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Solution"><span class="toc-text">First Solution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Improvements"><span class="toc-text">Improvements</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Answer-Analysis"><span class="toc-text">Answer Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Takeaways"><span class="toc-text">Takeaways</span></a></li></ol>
+    </div>
+  </section>
+
 
             
           
@@ -965,6 +1180,23 @@
 
 
 
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: "c96b38169b716996020c",
+      clientSecret: "3fcbe81a165d280f53ec52a96002f83ef611d556",
+      repo: "latteotw.github.io",
+      owner: "latteotw",
+      admin: "latteotw",
+      
+        id: "/blog/1304/",
+      
+      distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+    gitalk.render('gitalk-container');
+  </script>
 
 
 
