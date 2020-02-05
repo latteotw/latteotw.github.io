@@ -275,8 +275,8 @@
       
         
   <h2 class="title">
-    <a href="/2020/02/03/1304-Find-N-Unique-Integers-Sum-up-to-Zero/">
-      1304. Find N Unique Integers Sum up to Zero
+    <a href="/2020/02/04/Python-List/">
+      Python List
     </a>
   </h2>
 
@@ -306,7 +306,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-02-03</p>
+    <p>2020-02-04</p>
   </a>
 </div>
 
@@ -318,7 +318,7 @@
   <div class='new-meta-item category'>
     <a href='/categories/Python/List/' rel="nofollow">
       <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>Array&nbsp;/&nbsp;Python&nbsp;/&nbsp;List</p>
+      <p>Python&nbsp;/&nbsp;List</p>
     </a>
   </div>
 
@@ -346,21 +346,13 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <p><a href="https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/" target="_blank" rel="noopener">https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/</a></p>
-<h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><blockquote>
-<p>Given an integer n, return <strong><em>any</em></strong> array containing n <strong><em>unique</em></strong> integers such that they add up to 0.</p>
-</blockquote>
-<h1 id="Problem-Analysis"><a href="#Problem-Analysis" class="headerlink" title="Problem Analysis"></a>Problem Analysis</h1><p>We firstly note that the input is an integer <strong>n</strong> and output is an <strong>array</strong>. Furthermore, we find that the output is not unique, which means that we have to construct an output that meet the requirement of the problem and there could be multiple or even infinite number of correct answers to this problem. This is rarely seen in a coding interview.</p>
-<p>Another important thing that we notice from the question statement is that elements we use in the answer must be unique, which means we cannot reuse any of the element.</p>
-<h1 id="Thinking-Process"><a href="#Thinking-Process" class="headerlink" title="Thinking Process"></a>Thinking Process</h1><p>Firstly we noticed that we need to construct an array that sums to 0. It’s really natural to think about the following way of constructing the array:</p>
-<blockquote>
-<p>[-n, -n-1, -n-2, …, -3, -2, -1, 0, 1, 2, 3, …, n-2, n-1, n]</p>
-</blockquote>
-<p>Since we need n elements in the array, which means we need n/2 elements on the positive side and n/2 on the negative side so that they can easily sum up to zero. The dealbreaker here is whether we need to include 0 in the array. On which circumstances do we need to include 0? When n is odd. Otherwise we don’t need 0. With this thinking process, it’s very easy to come up with the following naive solution:</p>
-<h1 id="First-Solution"><a href="#First-Solution" class="headerlink" title="First Solution"></a>First Solution</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sumZero</span><span class="params">(self, n: int)</span> -&gt; List[int]:</span></span><br><span class="line">        answer = [] <span class="comment"># We construct an empty array to hold the result</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, (n//<span class="number">2</span>) + <span class="number">1</span>):</span><br><span class="line">            answer.extend([i, -i])</span><br><span class="line">        <span class="keyword">if</span> n % <span class="number">2</span> != <span class="number">0</span>: answer.append(<span class="number">0</span>) <span class="comment"># We add 0 when n is odd</span></span><br><span class="line">        <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+      <ul>
+<li><p><strong>List Concatenation</strong></p>
+<p>There are two ways two concatenate a list with another. One is to use <code>&gt;</code> to concatenate a list. Another way is to use <code>extend()</code> function to concatenate</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use + to concatenation a list</span></span><br><span class="line">A = [<span class="string">'a'</span>, <span class="string">'p'</span>, <span class="string">'p'</span>, <span class="string">'l'</span>, <span class="string">'e'</span>]</span><br><span class="line">B = [<span class="string">'b'</span>, <span class="string">'a'</span>, <span class="string">'n'</span>, <span class="string">'a'</span>, <span class="string">'n'</span>, <span class="string">'a'</span>]</span><br><span class="line">C = A + B</span><br><span class="line">print(C) <span class="comment"># ['a', 'p', 'p', 'l', 'e', 'b', 'a', 'n', 'a', 'n', 'a']</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Use extend function to concatenate</span></span><br><span class="line">A.extend(B)</span><br><span class="line">print(A) <span class="comment"># ['a', 'p', 'p', 'l', 'e', 'b', 'a', 'n', 'a', 'n', 'a']</span></span><br></pre></td></tr></table></figure>
       
         <div class="readmore">
-          <a href="/2020/02/03/1304-Find-N-Unique-Integers-Sum-up-to-Zero/" class="flat-box">
+          <a href="/2020/02/04/Python-List/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
             Read More
           </a>
@@ -369,10 +361,6 @@
     </div>
     
       <div class="full-width auto-padding tags">
-        
-          <a href="/tags/Array/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Array</a>
-        
-          <a href="/tags/Easy/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Easy</a>
         
           <a href="/tags/Python-List/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Python-List</a>
         
@@ -847,7 +835,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/tags/Array/" style="font-size: 14px; color: #999">Array</a> <a href="/tags/Easy/" style="font-size: 14px; color: #999">Easy</a> <a href="/tags/Misc/" style="font-size: 24px; color: #555">Misc</a> <a href="/tags/Python-List/" style="font-size: 14px; color: #999">Python-List</a>
+      <a href="/tags/Array/" style="font-size: 14px; color: #999">Array</a> <a href="/tags/Easy/" style="font-size: 14px; color: #999">Easy</a> <a href="/tags/Misc/" style="font-size: 24px; color: #555">Misc</a> <a href="/tags/Python-List/" style="font-size: 19px; color: #777">Python-List</a>
     </div>
   </section>
 

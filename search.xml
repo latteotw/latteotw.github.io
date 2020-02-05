@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Python List</title>
+      <link href="/2020/02/04/Python-List/"/>
+      <url>/2020/02/04/Python-List/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p><strong>List Concatenation</strong></p><p>There are two ways two concatenate a list with another. One is to use <code>&gt;</code> to concatenate a list. Another way is to use <code>extend()</code> function to concatenate</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use + to concatenation a list</span></span><br><span class="line">A = [<span class="string">'a'</span>, <span class="string">'p'</span>, <span class="string">'p'</span>, <span class="string">'l'</span>, <span class="string">'e'</span>]</span><br><span class="line">B = [<span class="string">'b'</span>, <span class="string">'a'</span>, <span class="string">'n'</span>, <span class="string">'a'</span>, <span class="string">'n'</span>, <span class="string">'a'</span>]</span><br><span class="line">C = A + B</span><br><span class="line">print(C) <span class="comment"># ['a', 'p', 'p', 'l', 'e', 'b', 'a', 'n', 'a', 'n', 'a']</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Use extend function to concatenate</span></span><br><span class="line">A.extend(B)</span><br><span class="line">print(A) <span class="comment"># ['a', 'p', 'p', 'l', 'e', 'b', 'a', 'n', 'a', 'n', 'a']</span></span><br></pre></td></tr></table></figure><a id="more"></a><p>We can easily note that <code>+</code> creates a new list C which is the result of <code>A + B</code></p><p>At the meanwhile, <code>extend</code> concatenate list B to original list of A. This means that no new list is created. It modifies list A in-place. This operation will usually save some space but we lost the track of A unless you <strong><em>copy</em></strong> the original elements of A into another list ahead of time. For how to copy a list, please see next section.</p></li><li><p><strong>List Copy</strong></p><p>To continue with the previous example, we can copy the list before we extend it so that we don’t lose the track of the original list if we want.</p><p>Before we go into the actual syntax, let’s see the following example:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A = [<span class="string">'a'</span>, <span class="string">'p'</span>, <span class="string">'p'</span>, <span class="string">'l'</span>, <span class="string">'e'</span>]</span><br><span class="line">B = [<span class="string">'b'</span>, <span class="string">'a'</span>, <span class="string">'n'</span>, <span class="string">'a'</span>, <span class="string">'n'</span>, <span class="string">'a'</span>]</span><br><span class="line">C = A</span><br><span class="line">D = A.copy()</span><br><span class="line">A.extend(B)</span><br></pre></td></tr></table></figure><p>In this case, what is the result of <code>print(C)</code>?</p><p>Also, What’s the result of <code>print(D)</code>?</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(A)</span><br><span class="line">[&#39;a&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39;b&#39;, &#39;a&#39;, &#39;n&#39;, &#39;a&#39;, &#39;n&#39;, &#39;a&#39;]</span><br><span class="line">&gt;&gt;&gt; print(C)</span><br><span class="line">[&#39;a&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;, &#39;b&#39;, &#39;a&#39;, &#39;n&#39;, &#39;a&#39;, &#39;n&#39;, &#39;a&#39;]</span><br><span class="line">&gt;&gt;&gt; print(D)</span><br><span class="line">[&#39;a&#39;, &#39;p&#39;, &#39;p&#39;, &#39;l&#39;, &#39;e&#39;]</span><br></pre></td></tr></table></figure><p>Why?</p><p>Let’s see some more results first:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(A.__str__)</span><br><span class="line">&lt;method-wrapper &#39;__str__&#39; of list object at 0x103aa2588&gt;</span><br><span class="line">&gt;&gt;&gt; print(C.__str__)</span><br><span class="line">&lt;method-wrapper &#39;__str__&#39; of list object at 0x103aa2588&gt;</span><br><span class="line">&gt;&gt;&gt; print(D.__str__)</span><br><span class="line">&lt;method-wrapper &#39;__str__&#39; of list object at 0x103aa2688&gt;</span><br><span class="line">&gt;&gt;&gt; A &#x3D;&#x3D; D</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; A &#x3D;&#x3D; C</span><br><span class="line">True</span><br></pre></td></tr></table></figure><p>What does this mean? <code>print(A.__str__)</code> function prints out the object description of A. <code>0x103aa2588</code> is the object address in memory.</p><p>Here we can see that A and C has the same address in memory and D has a different address in memory. <code>A == C</code> equals <code>true</code> and <code>A == D</code> equals <code>false</code> also verify this statement.</p><p>In order to know why we got this behavior, we have to look at how C and D is initialized.</p><p>We had <code>C = A</code> and <code>D = A.copy()</code>. The difference then became obvious:</p><p>Statement like <code>C = A</code> did a shallow copy which copy the object of <code>A</code> to variable <code>C</code> so that <code>A</code> and <code>C</code> refer to the same address in memory.</p><p>At the same time, <code>D = A.copy()</code> actually creates a new array <code>D</code> and we copied the actual item in <code>A</code> to <code>D</code> instead of simply refers the object of <code>A</code> to <code>D</code>.</p><p>It more or less similar to the following process:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D = []</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> A: D.append(item)</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+          <category> List </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python-List </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>1304. Find N Unique Integers Sum up to Zero</title>
       <link href="/2020/02/03/1304-Find-N-Unique-Integers-Sum-up-to-Zero/"/>
       <url>/2020/02/03/1304-Find-N-Unique-Integers-Sum-up-to-Zero/</url>
@@ -14,10 +41,6 @@
       <categories>
           
           <category> Array </category>
-          
-          <category> Python </category>
-          
-          <category> List </category>
           
       </categories>
       
