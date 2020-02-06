@@ -265,9 +265,134 @@
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/2020/02/05/1299-Replace-Elements-with-Greatest-Element-on-Right-Side/">
+      1299. Replace Elements with Greatest Element on Right Side 
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://latteotw.github.io" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>latteotw</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-05</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Array/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Array</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p><a href="https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/" target="_blank" rel="noopener">https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/</a></p>
+<h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><blockquote>
+<p>Given an array <code>arr</code>, replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1. After doing so, return the array.</p>
+</blockquote>
+<blockquote>
+<p><strong>Example 1:</strong></p>
+<p>Input: arr = [17,18,5,4,6,1]</p>
+<p>Output: [18,6,6,6,1,-1]</p>
+</blockquote>
+<h1 id="Problem-Analysis"><a href="#Problem-Analysis" class="headerlink" title="Problem Analysis"></a>Problem Analysis</h1><p>Our input for this problem is an array and we are required to replace <strong>every</strong> element in the array with another number. This means that we have to iterate through the array for at least once. This yields at least O(N) time complexity. We also noticed that the last element is always -1. What we have to return is the modified array or a new array. This means that if we can modify the array in-place, we could reach a O(1) space complexity.</p>
+<h1 id="Thinking-Process"><a href="#Thinking-Process" class="headerlink" title="Thinking Process"></a>Thinking Process</h1><p>The very intuitive solution is to start from the first element in the array and move to the right one by one. At each element, we find the maximum number on the right. However, it’s easy to get the time complexity of this algorithm which will be O(N^2). This is way too slow.</p>
+<p>The question to ask is why do we have to iterate through each element on the right of the current index? Because we have to find the current maximum on the right every time we move the index. Is there anyway for us to find the current maximum on the right without iterating through the sub-array to the right of the index? Yes, we can start from the last element of the array. Every time we move the index to the left by one, we have already known what’s the maximum from the right-most point to the current index. This easily yields the following O(N) answer:</p>
+<h1 id="First-Solution"><a href="#First-Solution" class="headerlink" title="First Solution"></a>First Solution</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">replaceElements</span><span class="params">(self, arr: List[int])</span> -&gt; List[int]:</span></span><br><span class="line">        cur_max = <span class="number">-1</span> <span class="comment"># We keep track of what's the current maximum number from the right-most point.</span></span><br><span class="line">        <span class="comment"># cur_max is initialized to -1 because the last element is -1.</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">            arr[i], cur_max = cur_max, max(cur_max, arr[i])</span><br><span class="line">        <span class="keyword">return</span> arr</span><br></pre></td></tr></table></figure>
+      
+        <div class="readmore">
+          <a href="/2020/02/05/1299-Replace-Elements-with-Greatest-Element-on-Right-Side/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/Array/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Array</a>
+        
+          <a href="/tags/Easy/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Easy</a>
+        
+          <a href="/tags/Python-List/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Python-List</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -1354,7 +1479,7 @@
     <div class='content pure'>
       <ul class="entry">
         
-          <li><a class="flat-box" title="/categories/Array/" href="/categories/Array/"><div class='name'>Array</div><div class='badge'>(1)</div></a></li>
+          <li><a class="flat-box" title="/categories/Array/" href="/categories/Array/"><div class='name'>Array</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box" title="/categories/Misc/" href="/categories/Misc/"><div class='name'>Misc</div><div class='badge'>(4)</div></a></li>
         
