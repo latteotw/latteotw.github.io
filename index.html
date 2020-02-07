@@ -367,19 +367,19 @@
 </blockquote>
 <blockquote>
 <p><strong>Example 1:</strong></p>
-<p>Input: [[1,1,0], [1,0,1], [0,0,0]]</p>
-<p>Output: [[1,0,0], [0,1,0], [1,1,1]]</p>
-<p>Explanation: First reverse each row: [[0,1,1], [1,0,1], [0,0,0]].</p>
-<p>Then, invert the image: [[1,0,0], [0,1,0], [1,1,1]]</p>
+<p>Input: [[1, 1, 0], [1, 0, 1], [0, 0, 0]]</p>
+<p>Output: [[1, 0, 0], [0, 1, 0], [1, 1, 1]]</p>
+<p>Explanation: First reverse each row: [[0, 1, 1], [1, 0, 1], [0, 0, 0]].</p>
+<p>Then, invert the image: [[1, 0, 0], [0, 1, 0], [1, 1, 1]]</p>
 </blockquote>
 <blockquote>
 <p><strong>Example 2:</strong></p>
-<p>Input: [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]</p>
-<p>Output: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]</p>
-<p>Explanation: First reverse each row: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]].</p>
-<p>Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]</p>
+<p>Input: [[1, 1, 0, 0], [1, 0, 0, 1], [0, 1, 1, 1], [1, 0, 1, 0]]</p>
+<p>Output: [[1, 1, 0, 0], [0, 1, 1, 0], [0, 0, 0, 1], [1, 0, 1, 0]]</p>
+<p>Explanation: First reverse each row: [[0, 0, 1, 1], [1, 0, 0, 1], [1, 1, 1, 0], [0, 1, 0, 1]].</p>
+<p>Then invert the image: [[1, 1, 0, 0], [0, 1, 1, 0], [0, 0, 0, 1], [1, 0, 1, 0]]</p>
 </blockquote>
-<h1 id="Problem-Analysis"><a href="#Problem-Analysis" class="headerlink" title="Problem Analysis"></a>Problem Analysis</h1><p>The input is a matrix which means that we are dealing with a 2-D array. 2-D array in python can be implemented as 2-D list. 2-D list is a list of list. The inner list represents the elements in each row and the outer list represents all the rows. We are asked to do two things, one is to flip the matrix and also invert the value. We can quickly think this as a minimum <code>O(M*N)</code> time complexity algorithm, where M and N represents the dimension of the matrix, because we have to go through each elements in the list. Space complexity is unknown until we know how can we flip the matrix.</p>
+<h1 id="Problem-Analysis"><a href="#Problem-Analysis" class="headerlink" title="Problem Analysis"></a>Problem Analysis</h1><p>The input is a matrix which means that we are dealing with a 2-D array. 2-D array in python can be implemented as 2-D list. 2-D list is a list of list. The inner list represents the elements in each row and the outer list represents all the rows. We are asked to do two things, one is to flip the matrix and also invert the value. We can quickly think this as a minimum <code>O(M * N)</code> time complexity algorithm, where M and N represents the dimension of the matrix, because we have to go through each elements in the list. Space complexity is unknown until we know how can we flip the matrix.</p>
 <h1 id="Thinking-Process"><a href="#Thinking-Process" class="headerlink" title="Thinking Process"></a>Thinking Process</h1><p>The steps are very obvious: flip and then invert. Let’s think about it one by one.</p>
 <p>How should we flip a list in python? There are couple ways to do it:</p>
 <ol>
