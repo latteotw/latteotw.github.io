@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Archives: 2020/1 | LATTEOTW</title>
+  <title>832. Flipping an Image | LATTEOTW</title>
   
   
 
@@ -46,7 +46,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover  half'>
+    <cover class='cover post half'>
       
         
   <h1 class='title'>LATTEOTW</h1>
@@ -248,22 +248,10 @@
   <div class="l_body">
     <div class='body-wrapper'>
       <div class='l_main'>
-	
-		
-  <section class="post-list">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
   
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
 
 
   <section class='meta'>
@@ -272,11 +260,13 @@
     <div class="meta" id="header-meta">
       
         
-  <h2 class="title">
-    <a href="/2020/01/30/About-this-blog/">
-      About this blog
-    </a>
-  </h2>
+  
+    <h1 class="title">
+      <a href="/2020/02/07/832-Flipping-an-Image/">
+        832. Flipping an Image
+      </a>
+    </h1>
+  
 
 
       
@@ -304,7 +294,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2020-01-30</p>
+    <p>2020-02-07</p>
   </a>
 </div>
 
@@ -314,11 +304,29 @@
             
   
   <div class='new-meta-item category'>
-    <a href='/categories/Misc/General/' rel="nofollow">
+    <a href='/categories/Array/' rel="nofollow">
       <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>Misc&nbsp;/&nbsp;General</p>
+      <p>Array</p>
     </a>
   </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
 
 
           
@@ -342,43 +350,185 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h1><p>I started writing this blog as a memo for my coding interview preparation process.<br>At the mean while, I hope readers can find useful contents in this blog, either<br>you are preparing for coding interview the same as me, or just hoping to sharp your<br>data structures and algorithms.</p>
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p><a href="https://leetcode.com/problems/flipping-an-image/" target="_blank" rel="noopener">https://leetcode.com/problems/flipping-an-image/</a></p>
+<h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><blockquote>
+<p>Given a binary matrix A, we want to flip the image horizontally, then invert it, and return the resulting image.</p>
+<p>To flip an image horizontally means that each row of the image is reversed.  For example, flipping [1, 1, 0] &gt;horizontally results in [0, 1, 1].</p>
+<p>To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0. For example, inverting [0, 1, 1] &gt;results in [1, 0, 0].</p>
+</blockquote>
+<blockquote>
+<p><strong>Example 1:</strong></p>
+<p>Input: [[1,1,0], [1,0,1], [0,0,0]]</p>
+<p>Output: [[1,0,0], [0,1,0], [1,1,1]]</p>
+<p>Explanation: First reverse each row: [[0,1,1], [1,0,1], [0,0,0]].</p>
+<p>Then, invert the image: [[1,0,0], [0,1,0], [1,1,1]]</p>
+</blockquote>
+<blockquote>
+<p><strong>Example 2:</strong></p>
+<p>Input: [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]</p>
+<p>Output: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]</p>
+<p>Explanation: First reverse each row: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]].</p>
+<p>Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]</p>
+</blockquote>
+<h1 id="Problem-Analysis"><a href="#Problem-Analysis" class="headerlink" title="Problem Analysis"></a>Problem Analysis</h1><p>The input is a matrix which means that we are dealing with a 2-D array. 2-D array in python can be implemented as 2-D list. 2-D list is a list of list. The inner list represents the elements in each row and the outer list represents all the rows. We are asked to do two things, one is to flip the matrix and also invert the value. We can quickly think this as a minimum <code>O(M*N)</code> time complexity algorithm, where M and N represents the dimension of the matrix, because we have to go through each elements in the list. Space complexity is unknown until we know how can we flip the matrix.</p>
+<h1 id="Thinking-Process"><a href="#Thinking-Process" class="headerlink" title="Thinking Process"></a>Thinking Process</h1><p>The steps are very obvious: flip and then invert. Let’s think about it one by one.</p>
+<p>How should we flip a list in python? There are couple ways to do it:</p>
+<ol>
+<li><p>Use built-in function reversed()</p>
+</li>
+<li><p>Use List class method reverse()</p>
+</li>
+<li><p>Use List slicing [::-1]</p>
+</li>
+</ol>
+<p>We will talk about the differences between them in the takeaways section. We will just choose one to use.</p>
+<p>After knowing how should we flip a single list, we should think about how should we flip the whole matrix. The answer is very obvious. Row by row.</p>
+<p>We also have to invert each <code>0</code> to <code>1</code> and <code>1</code> to <code>0</code>. This can be done by using <code>1 - value</code>.</p>
+<p>Now it’s clear to us the we should iterate through each row of the matrix and flip them. At the same time, we should invert the values. Let’s see what’s the most intuitive solution:</p>
+<h1 id="First-Solution"><a href="#First-Solution" class="headerlink" title="First Solution"></a>First Solution</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">flipAndInvertImage</span><span class="params">(self, A: List[List[int]])</span> -&gt; List[List[int]]:</span></span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> A: <span class="comment"># Iterate through each row in A</span></span><br><span class="line">            row.reverse() <span class="comment"># We flip each row</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(row)):</span><br><span class="line">                row[i] = <span class="number">1</span> - row[i] <span class="comment"># Invert the value</span></span><br><span class="line">        <span class="keyword">return</span> A</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="Improvements"><a href="#Improvements" class="headerlink" title="Improvements"></a>Improvements</h1><p>The time complexity of this algorithm is what we desired: <code>O(M * N)</code>. I couldn’t think of faster ways to implement this algorithm. In regard of the space complexity, let’s see what’s the current one’s. We used <code>row.reverse()</code> function to implement the flipping. What’s the space complexity of this operation? It’s <code>O(N)</code>. We will talk about the details in later section. This yields <code>O(M * N)</code> space complexity. Actually, for all the methods that reverse the list, they are at least <code>O(N)</code> space complexity so there’s no room to improve the space complexity either. The next way to improve this algorithm is to think about the syntax simplicity. There’s a pythonic answer:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">flipAndInvertImage</span><span class="params">(self, A: List[List[int]])</span> -&gt; List[List[int]]:</span></span><br><span class="line">        <span class="keyword">return</span> [[<span class="number">1</span> - i <span class="keyword">for</span> i <span class="keyword">in</span> row[::<span class="number">-1</span>]] <span class="keyword">for</span> row <span class="keyword">in</span> A]</span><br></pre></td></tr></table></figure>
+
+<h1 id="Answer-Analysis"><a href="#Answer-Analysis" class="headerlink" title="Answer Analysis"></a>Answer Analysis</h1><p>The improved algorithm doesn’t help with improving the time and space complexities.</p>
+<blockquote>
+<p>Time complexity: <code>O(M * N)</code> where M x N is the dimension of the input matrix.</p>
+<p>Space complexity: <code>O(M * N)</code> where M x N is the dimension of the input matrix.</p>
+</blockquote>
+<h1 id="Takeaways"><a href="#Takeaways" class="headerlink" title="Takeaways"></a>Takeaways</h1><ol>
+<li><p>Reverse a list</p>
+<p> As we have talked earlier, there are couple of different ways to reverse a list. We will talk about them one by one.</p>
+<ul>
+<li><p>Using built-in reversed() function</p>
+<p>Python3 has reversed() as a built-in function which takes a <code>seq</code> as input. According to <a href="https://docs.python.org/3/library/functions.html#reversed" target="_blank" rel="noopener">Python’s official documentation</a>:</p>
+<blockquote>
+<p>seq must be an object which has a <strong>reversed</strong>() method or supports the sequence protocol (the <strong>len</strong>() method and the <strong>getitem</strong>() method with integer arguments starting at 0).</p>
+</blockquote>
+<p>One thing to notice is that reversed() return an iterator. To make the iterator a list, you have co explicitly cast it. For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; b &#x3D; reversed(a)</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">&lt;list_reverseiterator object at 0x1090762e8&gt;</span><br><span class="line">&gt;&gt;&gt; list(b)</span><br><span class="line">[3, 2, 1]</span><br></pre></td></tr></table></figure>
+<p>It has O(N) time and space complexity.</p>
+</li>
+<li><p>Using List class method reverse()<br>List class contains a class method called <code>reverse()</code> which modifies the object <strong>in-place</strong> to reverse it. Even though the list is modified in-place, it still requires O(N) time complexity because it requires additional extra memory during the reverse.</p>
+<p>Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; a.reverse()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">[3, 2, 1]</span><br></pre></td></tr></table></figure>
+<p>It has O(N) time and space complexity.</p>
+</li>
+<li><p>Using list slice<br>List can also be reversed using slicing syntax such as a[::-1]. This doesn’t modify the original list so you have to assign it to another variable. For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; b &#x3D; a[::-1]</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">[3, 2, 1]</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">[1, 2, 3]</span><br></pre></td></tr></table></figure>
+<p>It has O(N) time and space complexity. </p>
+</li>
+</ul>
+</li>
+<li><p>List comprehension</p>
+<p> I used list comprehension in the improved algorithm. List comprehension is a really useful and clean syntax to construct a list. For more details, please refer to this <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions" target="_blank" rel="noopener">official python documentation</a>.</p>
+</li>
+</ol>
+
+      </div>
       
-        <div class="readmore">
-          <a href="/2020/01/30/About-this-blog/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            Read More
-          </a>
-        </div>
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-07T15:47:40-08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>updated at Feb 7, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Array/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Array</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Easy/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Easy</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python-List/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Python-List</p></a></div>
+
+
+        
+      
+        
+          
+
+        
       
     </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/tags/Misc/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Misc</a>
-        
-      </div>
-    
   </section>
-</article>
 
-          </div>
-        
+
       
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+      
+          <div class="prev-next">
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2020/02/06/Python-built-in-functions/" rel="prev" title="Python built-in functions">
+                                  
+                                      Python built-in functions
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Python-Built-In-Functions/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Python-Built-In-Functions</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
 
-  
 
 
-	
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Comments</h4>
+      
+      
+      
+        <section id="comments">
+          <div id="gitalk-container"></div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '832. Flipping an Image',
+      tools: true
+    }
+  </script>
+
+
 </div>
 <aside class='l_side'>
   
@@ -489,72 +639,25 @@
         
           
           
+        
+          
+          
             
-              <section class='widget list'>
-  
+              
+  <section class='widget toc-wrapper'>
+    
 <header class='pure'>
-  <div><i class="fas fa-globe fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Quick links</div>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
   
 </header>
 
-  <div class='content pure'>
-    <ul class="entry">
-      
-        <li><a class="flat-box" title="https://latteotw.github.io/2020/02/02/How-to-use-this-blog/" href="https://latteotw.github.io/2020/02/02/How-to-use-this-blog/"
-          
-          
-          >
-          <div class='name'>
-            
-              <i class=" fa-fw" aria-hidden="true"></i>
-            
-            &nbsp;&nbsp;How to use this blog
-          </div>
-          
-        </a></li>
-      
-        <li><a class="flat-box" title="https://latteotw.github.io/2020/02/02/Knowledge-structure-graph/" href="https://latteotw.github.io/2020/02/02/Knowledge-structure-graph/"
-          
-          
-          >
-          <div class='name'>
-            
-              <i class=" fa-fw" aria-hidden="true"></i>
-            
-            &nbsp;&nbsp;Knowledge structure graph
-          </div>
-          
-        </a></li>
-      
-        <li><a class="flat-box" title="https://latteotw.github.io/2020/02/02/Study-plan/" href="https://latteotw.github.io/2020/02/02/Study-plan/"
-          
-          
-          >
-          <div class='name'>
-            
-              <i class=" fa-fw" aria-hidden="true"></i>
-            
-            &nbsp;&nbsp;Study plan
-          </div>
-          
-        </a></li>
-      
-        <li><a class="flat-box" title="https://latteotw.github.io/2020/01/30/About-this-blog/" href="https://latteotw.github.io/2020/01/30/About-this-blog/"
-          
-          
-          >
-          <div class='name'>
-            
-              <i class=" fa-fw" aria-hidden="true"></i>
-            
-            &nbsp;&nbsp;About this blog
-          </div>
-          
-        </a></li>
-      
-    </ul>
-  </div>
-</section>
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem-Statement"><span class="toc-text">Problem Statement</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem-Analysis"><span class="toc-text">Problem Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Thinking-Process"><span class="toc-text">Thinking Process</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Solution"><span class="toc-text">First Solution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Improvements"><span class="toc-text">Improvements</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Answer-Analysis"><span class="toc-text">Answer Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Takeaways"><span class="toc-text">Takeaways</span></a></li></ol>
+    </div>
+  </section>
+
 
             
           
@@ -569,78 +672,6 @@
           
         
           
-          
-        
-          
-          
-            
-              <section class='widget list'>
-  
-<header class='pure'>
-  <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Links</div>
-  
-</header>
-
-  <div class='content pure'>
-    <ul class="entry">
-      
-        <li><a class="flat-box" title="https://leetcode.com/" href="https://leetcode.com/"
-          
-          
-          >
-          <div class='name'>
-            
-              <i class=" fa-fw" aria-hidden="true"></i>
-            
-            &nbsp;&nbsp;Leetcode
-          </div>
-          
-        </a></li>
-      
-        <li><a class="flat-box" title="https://docs.python.org/3/" href="https://docs.python.org/3/"
-          
-          
-          >
-          <div class='name'>
-            
-              <i class=" fa-fw" aria-hidden="true"></i>
-            
-            &nbsp;&nbsp;Python Documentation
-          </div>
-          
-        </a></li>
-      
-        <li><a class="flat-box" title="https://www.geeksforgeeks.org/" href="https://www.geeksforgeeks.org/"
-          
-          
-          >
-          <div class='name'>
-            
-              <i class=" fa-fw" aria-hidden="true"></i>
-            
-            &nbsp;&nbsp;Geeksforgeeks
-          </div>
-          
-        </a></li>
-      
-        <li><a class="flat-box" title="https://github.com" href="https://github.com"
-          
-          
-          >
-          <div class='name'>
-            
-              <i class=" fa-fw" aria-hidden="true"></i>
-            
-            &nbsp;&nbsp;Github
-          </div>
-          
-        </a></li>
-      
-    </ul>
-  </div>
-</section>
-
-            
           
         
       
@@ -838,6 +869,190 @@
           
         
       
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-globe fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Quick links</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://latteotw.github.io/2020/02/02/How-to-use-this-blog/" href="https://latteotw.github.io/2020/02/02/How-to-use-this-blog/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;How to use this blog
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://latteotw.github.io/2020/02/02/Knowledge-structure-graph/" href="https://latteotw.github.io/2020/02/02/Knowledge-structure-graph/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Knowledge structure graph
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://latteotw.github.io/2020/02/02/Study-plan/" href="https://latteotw.github.io/2020/02/02/Study-plan/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Study plan
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://latteotw.github.io/2020/01/30/About-this-blog/" href="https://latteotw.github.io/2020/01/30/About-this-blog/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;About this blog
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Links</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://leetcode.com/" href="https://leetcode.com/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Leetcode
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://docs.python.org/3/" href="https://docs.python.org/3/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Python Documentation
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://www.geeksforgeeks.org/" href="https://www.geeksforgeeks.org/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Geeksforgeeks
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com" href="https://github.com"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Github
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
     
 
   
@@ -897,14 +1112,6 @@
   </div>
 </footer>
 <script>setLoadingBarProgress(80);</script>
-
-
-
-
-	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-	
-
-	
 
 
       <script>setLoadingBarProgress(60);</script>
@@ -991,6 +1198,23 @@
 
 
 
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: "c96b38169b716996020c",
+      clientSecret: "3fcbe81a165d280f53ec52a96002f83ef611d556",
+      repo: "latteotw.github.io",
+      owner: "latteotw",
+      admin: "latteotw",
+      
+        id: "/blog/832/",
+      
+      distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+    gitalk.render('gitalk-container');
+  </script>
 
 
 

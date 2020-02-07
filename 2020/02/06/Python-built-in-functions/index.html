@@ -383,6 +383,15 @@
 </li>
 </ul>
 </li>
+<li><p><strong>reversed()</strong></p>
+<p>Python3 has reversed() as a built-in function which takes a <code>seq</code> as input. According to <a href="https://docs.python.org/3/library/functions.html#reversed" target="_blank" rel="noopener">Python’s official documentation</a></p>
+<blockquote>
+<p>seq must be an object which has a <strong>reversed</strong>() method or supports the sequence protocol (the <strong>len</strong>() method and the <strong>getitem</strong>() method with integer arguments starting at 0).</p>
+</blockquote>
+<p>One thing to notice is that reversed() return an iterator. To make the iterator a list, you have co explicitly cast it. For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; b &#x3D; reversed(a)</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">&lt;list_reverseiterator object at 0x1090762e8&gt;</span><br><span class="line">&gt;&gt;&gt; list(b)</span><br><span class="line">[3, 2, 1]</span><br></pre></td></tr></table></figure>
+<p>It has O(N) time and space complexity.</p>
+</li>
 </ul>
 
       </div>
@@ -396,10 +405,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-06T22:57:57-08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-07T15:47:49-08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>updated at Feb 6, 2020</p>
+    <p>updated at Feb 7, 2020</p>
   </a>
 </div>
 
@@ -425,6 +434,25 @@
       
       
           <div class="prev-next">
+              
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                          <h4>
+                              <a href="/2020/02/07/832-Flipping-an-Image/" rel="prev" title="832. Flipping an Image">
+                                
+                                    832. Flipping an Image
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Array/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Array</a> <a class="tag" href="/tags/Easy/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Easy</a> <a class="tag" href="/tags/Python-List/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Python-List</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
               
               
                   <section class="next">
@@ -742,7 +770,7 @@
     <div class='content pure'>
       <ul class="entry">
         
-          <li><a class="flat-box" title="/categories/Array/" href="/categories/Array/"><div class='name'>Array</div><div class='badge'>(2)</div></a></li>
+          <li><a class="flat-box" title="/categories/Array/" href="/categories/Array/"><div class='name'>Array</div><div class='badge'>(3)</div></a></li>
         
           <li><a class="flat-box" title="/categories/Misc/" href="/categories/Misc/"><div class='name'>Misc</div><div class='badge'>(4)</div></a></li>
         
@@ -802,7 +830,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/tags/Array/" style="font-size: 17.33px; color: #828282">Array</a> <a href="/tags/Easy/" style="font-size: 17.33px; color: #828282">Easy</a> <a href="/tags/Misc/" style="font-size: 24px; color: #555">Misc</a> <a href="/tags/Python-Built-In-Functions/" style="font-size: 14px; color: #999">Python-Built-In-Functions</a> <a href="/tags/Python-List/" style="font-size: 20.67px; color: #6c6c6c">Python-List</a>
+      <a href="/tags/Array/" style="font-size: 19px; color: #777">Array</a> <a href="/tags/Easy/" style="font-size: 19px; color: #777">Easy</a> <a href="/tags/Misc/" style="font-size: 24px; color: #555">Misc</a> <a href="/tags/Python-Built-In-Functions/" style="font-size: 14px; color: #999">Python-Built-In-Functions</a> <a href="/tags/Python-List/" style="font-size: 24px; color: #555">Python-List</a>
     </div>
   </section>
 
